@@ -8,4 +8,23 @@ class Student(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     age = db.Column(db.Integer, nullable=False)
     room_number = db.Column(db.String(20), nullable=False)
-    fees_paid = db.Column(db.Boolean, default=False)
+
+    def __repr__(self):
+        return f"<Student {self.name}, Room {self.room_number}>"
+
+    @staticmethod
+    def add_student(name, email, age, room_number):
+        """Safely add a new student to the database."""
+        try:
+            new_student = Student(
+                name=name,
+                email=email,
+                age=int(age),
+                room_number=room_number
+            )
+            db.session.add(new_student)
+            db.session.commit()
+            return f"✅ Successfully added {name}"
+        except Exception as e:
+            db.session.rollback()  # Rollback in case of error
+            return f"❌ Error adding student: {e}"

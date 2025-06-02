@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Register</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <h2>Hostel Registration</h2>
-    <form method="POST">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="number" name="age" placeholder="Age" required>
-        <input type="text" name="room_number" placeholder="Room Number" required>
-        <button type="submit">Register</button>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Register - Hostel Management{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Hostel Registration</h1>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="number" name="age" placeholder="Age" required>
+            <input type="text" name="room_number" placeholder="Room Number" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+{% endblock %}

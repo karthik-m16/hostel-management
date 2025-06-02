@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Hostel Management{% endblock %}
+
+{% block content %}
+    <h2>Student Dashboard</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Room Number</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.room_number }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
